@@ -1,0 +1,22 @@
+<h1>Edit Post</h1>
+<form action="<?php echo $block->getBaseUrl(); ?>blog/index/save" method="post">
+    <?php 
+        $post = $block->getPost();
+    ?>
+    <input style="display:none" type="text" name="id" value="<?php echo $post->getId(); ?>">
+    <label for="">URL</label>
+    <input type="text" name="url" value="<?php echo $post->getUrlKey(); ?>">
+    <label for="">Image</label>
+    <input type="text" name="image" value="<?php echo $post->getImage(); ?>">
+    <label for="">Content</label>
+    <input type="text" name="content" value="<?php echo $post->getContent(); ?>">
+    <label for="">Status</label><br>
+    <?php
+        if($post->getStatus()==1){
+            echo '<input checked type="radio" name="status" value="1">Hien thi    <input type="radio" name="status" value="0">An';
+        }else{
+            echo '<input type="radio" name="status" value="1">Hien thi   <input checked type="radio" name="status" value="0">An';
+        }
+    ?>
+    <br><button name="editbtn">Edit</button>
+</form>
